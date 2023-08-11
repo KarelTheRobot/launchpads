@@ -19,6 +19,7 @@ var correct_col;
 var start_row;
 var start_col;
 var visited;
+var path_length;
 // make a 2 dimensional array
 function randomize_grid() {
     for (var i = 0; i < grid.length; i++) {
@@ -52,7 +53,12 @@ function randomize_grid() {
             };
         }
     }
-    create_path();
+    path_length = 0;
+    c = 0;
+    do {
+        c++;
+        create_path();
+    } while (path_length < 7 && c < 20);
 }
 
 function convert_rowcol_to_letternumber(row, col) {
@@ -66,6 +72,7 @@ function create_path() {
     start_col = Math.floor(Math.random() * cols);
     document.getElementById("start").innerHTML = "Start: " +
                     convert_rowcol_to_letternumber(start_row, start_col);
+    path_length = 0;
 
     // follow the arrows until a point is reached that is already visited
     var current_row = start_row;
@@ -106,6 +113,7 @@ function create_path() {
                         convert_rowcol_to_letternumber(next_row, next_col));
             correct_col = next_col;
             correct_row = next_row;
+            path_length++;
             break;
         } else {
             // if not, set the current cell to the next cell
@@ -114,7 +122,7 @@ function create_path() {
             current_row = next_row;
             current_col = next_col;
             visited[current_row][current_col] = true;
-            
+            path_length++;
         }
     }
 }
