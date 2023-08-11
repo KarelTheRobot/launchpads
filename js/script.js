@@ -58,7 +58,7 @@ function randomize_grid() {
     do {
         c++;
         create_path();
-    } while (path_length < 7 && c < 20);
+    } while (path_length < 10 && c < 30);
 }
 
 function convert_rowcol_to_letternumber(row, col) {
