@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <h1>Launchpads</h1>
+        <div id="game-container">
+            <div id="header">
+                <span id="start">Start: --</span>
+                <span id="answer">Answer:</span>
+                <input id="answer_input">
+            </div>
+            <div id="header2">
+                <span id="result" hidden="true"></span>
+                <button id="reset" hidden="true" onclick="reset_board()">Reset</button>
+            </div>
+            <div id="board"></div>
+            <div>
+                W <input id="width">
+                H <input id="height">
+                <button id="create" onclick="change_size()">Create</button>
+            </div>
+        </div>
+        <script src="js/script.js"></script>
+    </body>
+</html>
